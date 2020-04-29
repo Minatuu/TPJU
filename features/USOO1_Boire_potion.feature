@@ -35,5 +35,5 @@ Then  le systéme envoie lui renvoie la quantité initiale <quantite>
 Examples:
 
 |quantity|q|
-|5      |-2|
+|5      |2|
 |5      |0|
