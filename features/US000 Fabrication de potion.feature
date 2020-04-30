@@ -1,28 +1,29 @@
 Feature: US_000 Fabriquer la potion
 en tant que Personnage
 Je veux preparer une certaine quantité de potion magique
-Afin d'assurer la disponibité de potion pour le peuple gaulois
+Afin que les personnages puissent en boire
 
-Scenario Outline: calcule totale quantité potion
-Given le personnage <personna3> 
-When  le personnage prépare une quantité de potion <q>
-Then  la quantité totale <quantite> devient la somme de la valeur de <quantite> et de la valeur <q> ajoutée.
+Scenario Outline: Préparer une quantité de potion
+Given le personnage <nom> qui souhaite préparer de la potion
+When  le personnage saisit la quantité de potion <q>
+Then  la quantité totale <quantite> devient la somme de <quantite> et de <q>.
 
 Examples:
 
-|quantity|q|
-|0       |10|
-|10      |0|
-|10      |5|
-|15      |0|
+|personna   |quantity|q|
+|"Panoramix"|0       |10|
+|"Panoramix"|10      |0|
+|"Panoramix"|10      |5|
+|"Panoramix"|15      |0|
 
 Scenario Outline: Refus de valeur négative
-Given le personnage <personna3> 
-When  le personnage prépare une quantité de potion <q> négative
-Then  le systéme envoie lui renvoie la quantité initiale <quantite>
+Given le personnage <nom> qui souhaite préparer de la potion
+When  le personnage saisit une quantité de potion <q> négative
+Then  le systéme lui renvoie la quantité initiale <quantite> de potion
 
 Examples:
 
-|quantity|q|
-|5      |-2|
-|5      |0|
+|personna   |quantity|q|
+|"Panoramix"|10       |-2|
+|"Panoramix"|10      |0|
+
