@@ -95,7 +95,7 @@ public class PersonnageTest
     @Test
     public void testcompetences_personnages()
     {
-        Personnage personna1 = new Personnage("Astérix", "Christian Clavier");
+        personna1 = new Personnage("Astérix", "Christian Clavier");
         assertEquals("Christian Clavier", personna1.getActeur());
         assertEquals("Astérix", personna1.getNom());
         assertEquals("Astérix est un grand guerrier et il a des compétences de chef ",personna1.competences());
@@ -107,9 +107,7 @@ public class PersonnageTest
         assertEquals(10, personna3.prepare(10));
         assertEquals(5, personna3.boire(5));
         assertEquals(-1, personna3.boire(10));
-        assertEquals("Christian Clavier", personna1.getActeur());
-        assertEquals("Astérix", personna1.getNom());
-        assertEquals("Astérix est un grand guerrier et il a des compétences de chef ",personna1.competences());
+             
     }
     @Test
     public void testfilm_acteur()

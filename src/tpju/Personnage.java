@@ -8,7 +8,7 @@ public class Personnage
     private String nom;
     private String acteur;
     private Film film ;
-    static int quantity ; // quatité de potion disponible
+    public static int quantity ; // quatité de potion disponible
     
     /**
      * Constructeur d'objets de classe Personnage
@@ -21,6 +21,13 @@ public class Personnage
         quantity = 0;
     }
     
+    public static int getQuantity() {
+        return quantity;
+    }
+
+    public static void setQuantity(int quantity) {
+        Personnage.quantity = quantity;
+    }
      /**
      * Accesseurs
      */
@@ -34,12 +41,15 @@ public class Personnage
     public int prepare(int q){ 
         return quantity = quantity + q;
     }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
     
     public int boire(int b){ 
         if (quantity > b)
             return quantity - b;
-        else
-            return -1;
+        return 0;
             
     }
 

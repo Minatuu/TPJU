@@ -5,10 +5,9 @@ afin de savoir le personnage joué par mon acteur préféré
 
 Scenario Outline: trouver un acteur à partir du personnage
 Given un téléspectateur
-When  vouloir connaitre l'acteur associé à un personnage <nom>
-Then  afficher le nom de l'acteur <acteur>
+When  vouloir connaitre l'acteur associé à un personnage de film <nom> 
+Then  afficher le nom de l'acteur
 
-Examples:
-
-|nom      |acteur|
-|"Asterix"| "Christian Clavier"|
+Examples: 
+          | nom  |
+          | "Asterix" |  
