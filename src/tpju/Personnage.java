@@ -49,7 +49,7 @@ public class Personnage
     public int boire(int b){ 
         if (quantity > b)
             return quantity - b;
-        return 0;
+        return -1;
             
     }
 

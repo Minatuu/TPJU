@@ -27,12 +27,14 @@ public class Film
         personnages.add(personnage);
     }
     
-    public String getPersonnage()
+    public String getPersonnage(String nom)
     {
         ListIterator<Personnage> it = personnages.listIterator();
         while(it.hasNext()){
          Personnage per = it.next();
-         return per.getNom();
+         if(per.getNom().equals(nom)) {
+             return per.getActeur();
+            }
         }
         return null;
     }

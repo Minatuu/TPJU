@@ -10,4 +10,4 @@ Then  afficher le nom de l'acteur
 
 Examples: 
           | nom  |
-          | "Asterix" |  
+          | "Astérix" |  

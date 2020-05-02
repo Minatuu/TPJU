@@ -19,11 +19,3 @@ Feature: US_001 Boire potion
     Examples: 
       | q |
       | 10|
-
-  Scenario Outline: Refus de valeurs négatives
-    Given un personnage qui souhaite boire de la potion
-    When le personnage entre une quantité de potion <q> négative
-    Then le systéme lui renvoie la quantité de potion initiale 
-    Examples: 
-      | q |
-      | -1|
