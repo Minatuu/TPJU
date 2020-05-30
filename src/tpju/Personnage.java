@@ -2,13 +2,15 @@ package tpju;
 /**
  * Décrivez votre classe Personnage ici.
  */
-public class Personnage
+import AgileTP.*;
+public class Personnage implements Observateur
 {
     // variables d'instance 
     private String nom;
     private String acteur;
     private Film film ;
-    public static int quantity ; // quatité de potion disponible
+    
+    //public static int quantity ; // quatité de potion disponible
     
     /**
      * Constructeur d'objets de classe Personnage
@@ -18,16 +20,15 @@ public class Personnage
         // initialisation des variables d'instance
         this.nom = nom;
         this.acteur = acteur;
-        quantity = 0;
     }
     
-    public static int getQuantity() {
+    /*public static int getQuantity() {
         return quantity;
-    }
+    }*/
 
-    public static void setQuantity(int quantity) {
+   /* public static void setQuantity(int quantity) {
         Personnage.quantity = quantity;
-    }
+    }*/
      /**
      * Accesseurs
      */
@@ -39,7 +40,8 @@ public class Personnage
     }
     
     public int prepare(int q){ 
-        return quantity = quantity + q;
+        int qty = Potion.quantite + q;
+        return qty;
     }
 
     public void setNom(String nom) {
@@ -47,9 +49,15 @@ public class Personnage
     }
     
     public int boire(int b){ 
+<<<<<<< Updated upstream
         if (quantity > b)
             return quantity - b;
         return 0;
+=======
+        if (Potion.quantite > b)
+            return Potion.quantite - b;
+        return -1;
+>>>>>>> Stashed changes
             
     }
 
@@ -68,5 +76,10 @@ public class Personnage
                  return(this.nom + " est fort ");
                 }
         return null;
+    }
+
+    @Override
+    public void notifier() {
+         System.out.println("la notification est bien reçu");
     }
 }
