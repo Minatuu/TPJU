@@ -1,5 +1,7 @@
 package AgileTP;
 
+import java.util.Collection;
+
 
 public class Product implements Stock { 
     
@@ -50,22 +52,17 @@ public class Product implements Stock {
     }
 
     @Override
-    public int alimenterStock(int quantite) {
+    public void add(Stock potion) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public String delivreyStock(int quantite) {
+    public void remove(Stock potion) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void setQuantite(int q) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public int getQuantite() {
+    public Collection getListeStock() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

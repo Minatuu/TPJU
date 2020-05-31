@@ -15,20 +15,17 @@ public class AlimentationStockPotion {
 public void un_magicien_qui_souhaite_stocker_une_quantite_preparee_de_potion()
 {
     magicien = new Personnage("Panoramix", "Claude Rich");
-    potion = new Potion();
 }
 
-@When("^le magicien saisie la quantite du potion preparee (\\d+)$")
-public void le_magicien_saisie_la_quantite_du_potion_preparee(int arg1)
-{
-    potion.setQuantite(10);
-    potion.alimenterStock(arg1);
-    assertEquals(10+arg1,potion.getQuantite());
+@When("^le magicien saisie le nom \"([^\"]*)\" et la quantite de potion (\\d+)$")
+public void le_magicien_saisie_le_nom_et_la_quantite_de_potion(String arg1, int arg2) throws Throwable {
+    potion = new Potion(arg1, arg2);
 }
 
-@Then("^la quantite actuelle du stock devient la somme de la quantite existante plus la quantitee ajoute$")
-public void la_quantite_actuelle_du_stock_devient_la_somme_de_la_quantite_existante_plus_la_quantitee_ajoute() throws Throwable {
-    // Write code here that turns the phrase above into concrete actions
-    
+
+@Then("^la potion est ajoutée au stock de potions$")
+public void la_potion_est_ajoutée_au_stock_de_potions() throws Throwable {
+    potion.add(potion);
+    assertEquals(true,potion.getListeStock().contains(potion));
 }
 }

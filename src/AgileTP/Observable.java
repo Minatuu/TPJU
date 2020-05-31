@@ -14,30 +14,27 @@ import tpju.Observateur;
  *
  * @author aamina
  */
-class Observable
-{
+class Observable {
 
-	public Observable() 
-	{
-		m_observateurs = new LinkedList<Observateur>();
-	}
-	
-	public void notifierObservateurs()
-	{
-	   Iterator<Observateur> it = m_observateurs.iterator();
-	    // Notifier tous les observers
-	   while(it.hasNext()){
-		   Observateur obs = it.next();
-		   obs.notifier();
-	   }
-	}
-	
-	void ajouterObservateur(Observateur observateur)
-	{
-	    // On ajoute un personnage à la liste en le plaçant en premier (implémenté en pull).
-            // On pourrait placer cet observateur en dernier (implémenté en push, plus commun).
-	    m_observateurs.add(observateur);
-	}
-	
-	private List<Observateur> m_observateurs;
+    private List<Observateur> m_observateurs;
+
+    public Observable() {
+        m_observateurs = new LinkedList<Observateur>();
+    }
+
+    public void notifierObservateurs() {
+        Iterator<Observateur> it = m_observateurs.iterator();
+        // Notifier tous les observers
+        while (it.hasNext()) {
+            Observateur obs = it.next();
+            obs.notifier();
+        }
+    }
+
+    void ajouterObservateur(Observateur observateur) {
+        // On ajoute un personnage à la liste en le plaçant en premier (implémenté en pull).
+        // On pourrait placer cet observateur en dernier (implémenté en push, plus commun).
+        m_observateurs.add(observateur);
+    }
+
 }

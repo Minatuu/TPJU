@@ -1,5 +1,6 @@
 package Stepss;
 
+import AgileTP.*;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -9,6 +10,7 @@ import tpju.Personnage;
 
 public class BoirePotionSteps {
     private Personnage personna2, personna1;
+    Stock potion;
     
 @Given("^un personnage qui souhaite boire de la potion$")
 public void un_personnage_qui_souhaite_boire_de_la_potion()  throws Throwable
@@ -16,30 +18,18 @@ public void un_personnage_qui_souhaite_boire_de_la_potion()  throws Throwable
     personna1 = new Personnage("Astérix", "Christian Clavier");
     personna2 = new Personnage("Obélix", "Gérard Depardieu");
 }
-
-@When("^le personnage entre la quantité de potion (\\d+)$")
-public void le_personnage_entre_la_quantité_de_potion(int arg1)  throws Throwable
-{
-    Personnage.setQuantity(10);
-    assertEquals(10-arg1, personna1.boire(arg1));
+@When("^le personnage commande une potion en saisissant le nom \"([^\"]*)\" et la quantite (\\d+)$")
+public void le_personnage_commande_une_potion_en_saisissant_le_nom_et_la_quantite(String arg1, int arg2) throws Throwable {
+    
+    potion = new Potion(arg1,arg2);
+    potion.add(potion);
+    assertEquals(true, potion.getListeStock().contains(potion));
 }
 
-@Then("^la quantité restance devient la différence entre la valeur initiale de quantité et de la valeur bue\\.$")
-public void la_quantité_restance_devient_la_différence_entre_la_valeur_initiale_de_quantité_et_de_la_valeur_bue()  throws Throwable
-{
-   //
-}
-
-@When("^le personnage entre une quantité de potion (\\d+) supérieure à la quantité de potion disponible$")
-public void le_personnage_entre_une_quantité_de_potion_supérieure_à_la_quantité_de_potion_disponible(int arg1) throws Throwable
-{
-    assertEquals(-1, personna1.boire(arg1));
-}
-
-@When("^le personnage entre une quantité de potion -(\\d+) négative$")
-public void le_personnage_entre_une_quantité_de_potion_négative(int arg1)  throws Throwable
-{
-    assertEquals(-1, personna1.boire(arg1));
+@When("^le personnage commande une potion non disponible dans le stock en saisissant le nom \"([^\"]*)\" et la quantite (\\d+)$")
+public void le_personnage_commande_une_potion_non_disponible_dans_le_stock_en_saisissant_le_nom_et_la_quantite(String arg1, int arg2) throws Throwable {
+    potion = new Potion(arg1,arg2);
+    assertEquals(false, potion.getListeStock().contains(potion));
 }
 
 @Then("le systéme refuse avec le messageErreur")

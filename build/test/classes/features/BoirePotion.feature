@@ -5,25 +5,17 @@ Feature: US_001 Boire potion
 
   Scenario Outline: Boire une quantité de potion
     Given un personnage qui souhaite boire de la potion
-    When le personnage entre la quantité de potion <q>
-    Then la quantité restance devient la différence entre la valeur initiale de quantité et de la valeur bue.
+    When le personnage commande une potion en saisissant le nom <name> et la quantite <q>
+    Then la potion est suprimée du stock de potion disponible
 
     Examples: 
-      | q |
-      | 2 |
+       | name    | q  |
+       |"Fortex" | 1 |
 
-  Scenario Outline: Controle de la quantité de potion entrée
+  Scenario Outline: Controle de la disponibilité de la potion entréee
     Given un personnage qui souhaite boire de la potion
-    When le personnage entre une quantité de potion <q> supérieure à la quantité de potion disponible
-    Then le systéme lui renvoie la quantité de potion initiale
+    When le personnage commande une potion non disponible dans le stock en saisissant le nom <name> et la quantite <q>
+    Then le systeme lui renvoie un message qui indique la rupture de stock de potion
     Examples: 
-      | q |
-      | 10|
-
-  Scenario Outline: Refus de valeurs négatives
-    Given un personnage qui souhaite boire de la potion
-    When le personnage entre une quantité de potion <q> négative
-    Then le systéme lui renvoie la quantité de potion initiale 
-    Examples: 
-      | q |
-      | -1|
+      | name    | q  |
+       |"Rapidex" | 1 |

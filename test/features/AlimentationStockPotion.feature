@@ -5,9 +5,12 @@ Feature: US_02 AlimentationStockPotion
 
   Scenario Outline: Alimentation
     Given un magicien qui souhaite stocker une quantite preparee de potion
-    When le magicien saisie la quantite du potion preparee <q>
-    Then la quantite actuelle du stock devient la somme de la quantite existante plus la quantitee ajoute
+    When le magicien saisie le nom <name> et la quantite de potion <q>
+    Then la potion est ajoutée au stock de potions
 
     Examples: 
-      | q  |
-      | 10 |
+      | name    | q  |
+      |"Fortex" | 1 |
+
+
+

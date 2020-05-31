@@ -1,22 +1,22 @@
 Feature: US_01 CommanderPotion
   En tant que guerrier
-  Je souhaite pouvoir commander une quantite de potion
+  Je souhaite pouvoir commander de la potion
   Afin de consommer la potion et devenir plus fort
 
   Scenario Outline: Commander
-    Given un guerrier qui souhaite commander une quantite du potion
-    When le guerrier commande une quantite de potion <q>
-    Then la quantite disponible du potion devient la difference entre la quantite initiale et la quantite commandee.
+    Given un guerrier qui souhaite commander de la potion
+    When le guerrier commande une potion en saisissant le nom <name> et la quantite <q>
+    Then la potion est suprimée du stock de potion disponible
 
     Examples: 
-      | q |
-      | 5 |
+       | name    | q  |
+       |"Fortex" | 1 |
 
   Scenario Outline: Controle de la disponibilite d'une quantite
-    Given un guerrier qui souhaite commander une quantite du potion
-    When le guerrier commande une quantite du potion <q> superieure à la quantite disponible dans le stock
+    Given un guerrier qui souhaite commander de la potion
+    When le guerrier commande une potion non disponible dans le stock en saisissant le nom <name> et la quantite <q>
     Then le systeme lui renvoie un message qui indique la rupture de stock de potion
 
     Examples: 
-      | q  |
-      | 2 |
+       | name    | q  |
+       |"rapidix" | 10 |

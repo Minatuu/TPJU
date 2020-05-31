@@ -39,26 +39,22 @@ public class Personnage implements Observateur
         return acteur;
     }
     
-    public int prepare(int q){ 
-        int qty = Potion.quantite + q;
-        return qty;
-    }
-
-    public void setNom(String nom) {
+     public void setNom(String nom) {
         this.nom = nom;
     }
     
-    public int boire(int b){ 
-<<<<<<< Updated upstream
-        if (quantity > b)
-            return quantity - b;
-        return 0;
-=======
-        if (Potion.quantite > b)
-            return Potion.quantite - b;
-        return -1;
->>>>>>> Stashed changes
-            
+    public int prepare(String name, int qty){ 
+        
+        Stock potion = new Potion(name, qty);
+        potion.add(potion);
+        return qty;
+    }
+
+   
+    public int boire(Stock potion){ 
+        
+        potion.remove(potion);
+        return 1;
     }
 
     /**
